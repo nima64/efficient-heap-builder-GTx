@@ -1,9 +1,7 @@
 from __future__ import annotations
-from copyreg import constructor
 from typing import List 
 
 inp = [6,5,9,8,4,3,2,7]
-# inp = [5,4,3,2,1]
 
 class Heap:
     data = []
@@ -60,13 +58,11 @@ def downHeap(condLambda, heap: Heap, idx):
 
 def recursvDownHeap(condlambda, heap: Heap, idx):
     pidx = downHeap(condlambda,heap, idx)
-    # print(heap.data[idx])
     if pidx > 0:
         recursvDownHeap(condlambda, heap, pidx)
 
 def recursvDownHeapCount(condlambda, heap: Heap, idx ):
     pidx = downHeap(condlambda,heap, idx)
-    # print(heap.data[idx])
     if pidx > 0:
         return recursvDownHeapCount(condlambda, heap, pidx) + 1
     return 1
@@ -108,8 +104,6 @@ def test():
         cmp_tot = 0
         for x in dataset:
             cmp_tot += minhp.add(x)
-            # print(minhp)
-        # print(minhp)
         print(f"comparisons for naive build {cmp_tot}")
 
     def effBuild():
@@ -117,9 +111,8 @@ def test():
         cmp_tot = 0
         for x in range(len(dataset)-1,-1,-1):
             cmp_tot += minhp.downHeap(x)
-            # print(minhp)
-        # print(minhp)
         print(f"comparisons for effcient build {cmp_tot}")
+
     print("\nnaive vs effecient heap builder algorithm")
     print("number of comparisons for ordered(DESC) set\n")
     naiveBuild()
