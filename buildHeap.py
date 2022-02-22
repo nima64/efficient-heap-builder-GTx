@@ -1,8 +1,6 @@
 from __future__ import annotations
 from typing import List 
 
-inp = [6,5,9,8,4,3,2,7]
-
 class Heap:
     data = []
     def __init__(self, initData: List):
